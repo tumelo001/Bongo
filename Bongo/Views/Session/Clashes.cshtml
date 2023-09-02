@@ -1,0 +1,64 @@
+﻿@model List<List<Session>>
+
+@{
+    ViewData["Title"] = "Manage Clashes";
+    Regex timepattern = new Regex(@"[\d]{2}:[\d]{2} [\d]{2}:[\d]{2}");
+    Regex daypattern = new Regex(@"Monday|Tuesday|Wednesday|Thursday|Friday");
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="mb-3">Manage Clashes</h4>
+    @if (Model.Count > 0)
+    {
+        <form asp-action="Clashes" method="post">
+            <h5 class="mb-4">Please select one module with the specified time and day for the following:</h5>
+            @foreach (List<Session> list in Model)
+            {
+                Match dayMatch = daypattern.Match(list[0].sessionInPDFValue);
+                string later = $"Tap to handle {timepattern.Match(list[0].sessionInPDFValue).Value} {daypattern.Match(list[0].sessionInPDFValue).Value}";
+                <div class="form-group mb-3">
+                    <h5 class="mb-2">@dayMatch.Value</h5>
+                    @{
+                        List<SelectListItem> selectList = new List<SelectListItem>();
+                        Session selected = list.FirstOrDefault(s => s.sessionInPDFValue.Contains("selectedClass"));
+                        string value, displayText;
+                        if (selected != null)
+                        {
+                            value = selected.sessionInPDFValue.Replace("selectedClass", "");
+                            displayText = !selected.ModuleCode.Contains("CCCC")? 
+                            $"{selected.ModuleCode} @ {timepattern.Match(selected.sessionInPDFValue).Value.Replace(" ", " to ")} in {selected.Venue}":
+                            "--- select later ---";
+                            selectList.Add(new SelectListItem { Value = value, Text = displayText, Selected = true });
+                            list.Remove(selected);
+                        }
+                        else
+                        {
+                            selectList.Add(new SelectListItem { Value = later, Text = "--- select later ---", });
+                        }
+
+                        foreach (Session session in list)
+                        {
+                            value = session.sessionInPDFValue;
+                            displayText = !session.ModuleCode.Contains("CCCC") ?
+                            $"{session.ModuleCode} @ {timepattern.Match(session.sessionInPDFValue).Value.Replace(" ", " to ")} in {session.Venue}" :
+                            "--- select later ---";
+                            selectList.Add(new SelectListItem { Value = value, Text = displayText });
+                        }
+                        string optionLabel = selected is not null ? null : "--- select a class ---";
+                    }
+                    @Html.DropDownList("Sessions", selectList, optionLabel, new { @class = "form-select", @required = "required" })
+                </div>
+            }
+            <div class="d-flex session-prep-buttons">
+                <button class="btn btn-primary" type="submit" title="Continue"><i class=" fa-solid fa-arrow-right"></i></button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <h5>You currently do not have Clashing Lectures😊</h5>
+        <div class="d-flex session-prep-buttons">
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-isForFirstSemester="@TempData["isForFirstSemester"]title=" Go back"><i class=" fa-solid fa-arrow-right"></i></a>
+        </div>
+    }
+</div>

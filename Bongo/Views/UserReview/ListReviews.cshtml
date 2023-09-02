@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UserReview>
+@{
+    ViewData["Title"] = "Reviews List";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show alert-table" role="alert">
+        <i class="fa-solid fa-check"></i>
+        @TempData["Message"]
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>User</td>
+            <td>Rating</td>
+            <td>Review</td>
+            <td>Date</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.Username</td>
+                <td>@review.Rating</td>
+                <td>@review.Review</td>
+                <td>@review.ReviewDate</td>
+                <td>
+                    <form asp-action="DeleteReview" asp-route-username="@review.Username" method="post">
+                        <button class="btn btn-danger mx-3" type="submit" title="Delete" onclick="return confirm('Are you sure you want to delete @(review.Username)'s review?')">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

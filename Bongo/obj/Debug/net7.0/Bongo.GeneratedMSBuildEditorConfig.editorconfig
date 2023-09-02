@@ -1,0 +1,137 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Bongo
+build_property.RootNamespace = Bongo
+build_property.ProjectDir = C:\Users\tumel\OneDrive\Desktop\IBM\New folder\Bongo-master\Bongo-master\Bongo\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\tumel\OneDrive\Desktop\IBM\New folder\Bongo-master\Bongo-master\Bongo
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/AskSecurityQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBc2tTZWN1cml0eVF1ZXN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/SecurityQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWN1cml0eVF1ZXN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Account/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Home/UploadModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcGxvYWRNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/LandingPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ1BhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/AddSession.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxBZGRTZXNzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/Clashes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxDbGFzaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/ConfirmGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxDb25maXJtR3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/EditColors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxFZGl0Q29sb3JzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/Groups.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxHcm91cHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/SessionDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxTZXNzaW9uRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Session/TimeTableFileUpload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvblxUaW1lVGFibGVGaWxlVXBsb2FkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_EditSessionModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0U2Vzc2lvbk1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_NoticeModalPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpY2VNb2RhbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_TermsAndPrivacyModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UZXJtc0FuZFByaXZhY3lNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_ToolsNavBarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub29sc05hdkJhclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/UserReview/AddReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJldmlld1xBZGRSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/UserReview/ListReviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJldmlld1xMaXN0UmV2aWV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/UserReview/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclJldmlld1xMaXN0VXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tumel/OneDrive/Desktop/IBM/New folder/Bongo-master/Bongo-master/Bongo/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ldrwyg7rww

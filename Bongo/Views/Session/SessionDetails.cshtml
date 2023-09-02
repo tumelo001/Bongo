@@ -1,0 +1,79 @@
+﻿@model SessionModuleColorViewModel
+
+@{
+    ViewData["Title"] = "Session Details";
+    //string semester = ViewBag.isForFirstSemester ? "first" : "second";
+    Regex timepattern = new Regex(@"[\d]{2}:[\d]{2} [\d]{2}:[\d]{2}");
+    Regex daypattern = new Regex(@"Monday|Tuesday|Wednesday|Thursday|Friday");
+
+    string time = timepattern.Match(Model.Session.sessionInPDFValue).Value.Replace(" ", " - ");
+    string day = daypattern.Match(Model.Session.sessionInPDFValue).Value;
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show alert-table" role="alert">
+        <i class="fa-solid fa-check"></i>
+        @TempData["Message"]
+    </div>
+}
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="my-3">@Model.Session.ModuleCode</h4>
+    <form asp-controller="Session" asp-action="UpdateModuleColor" method="post">
+        <div class="mb-3">
+            <h5 class="details-Head">Type</h5><span>@Model.Session.sessionType</span>
+        </div>
+        <div class="mb-3">
+            <h5 class="details-Head">Venue</h5>
+            <input class="form-control detail-venue" asp-for="Session.Venue" style="width:40%;" name="Venue" />
+        </div>
+        <div class="mb-3">
+            <h5 class="details-Head">Time</h5><span>@day, @time</span>
+        </div>
+        <div class="mb-3">
+            <input type="hidden" asp-for="ModuleColor.Username" />
+            <input type="hidden" name="View" value="Details" />
+
+            <input type="hidden" asp-for="ModuleColor.ModuleCode" />
+            <input type="hidden" asp-for="ModuleColor.ModuleColorId" name="ModuleColorId" />
+            <input type="hidden" asp-for="ModuleColor.Color" />
+            <input type="hidden" asp-for="Session.sessionInPDFValue" name="oldSessionInPDFValue" />
+            <h5>Color</h5>
+            <div class="d-flex align-items-center">
+                <select id="colorSelect" asp-for="ModuleColor.ColorId" name="ColorId" class="form-select w-25" asp-items="@ViewBag.Colors">
+                </select>
+                <div id="colorPreview" class="ms-2" style="width:38px;height:38px;border-radius:4px;"></div>
+            </div>
+
+            <div class="d-flex session-prep-buttons">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary mx-3" title="Go back"><i class=" fa-solid fa-arrow-left"></i></a>
+                <button class="btn btn-outline-primary me-3" type="submit" title="Save changes"><i class=" fa-solid fa-floppy-disk"></i></button>
+                <button asp-controller="Session" asp-action="DeleteSession"
+                        asp-route-session="@Model.Session.sessionInPDFValue" asp-route-firstSemester="@Context.Request.Cookies["isForFirstSemester"]" formmethod="post"
+                        title="Remove Session for table" class="btn btn-danger" type="submit"
+                        onclick="return confirm('Are you sure you want to remove @Model.Session.ModuleCode on @day, @time?🙉')">
+                    <i class=" fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const colorSelect = document.getElementById('colorSelect');
+        const colorPreview = document.getElementById('colorPreview');
+        const color = @Html.Raw(Json.Serialize(Model.Colors.ToArray().OrderBy(m => m.ColorId)));
+
+        function updateColorPreview() {
+            const i = parseInt(colorSelect.value) - 1;
+            const selectedColor = color[i].colorValue;
+            colorPreview.style.backgroundColor = selectedColor;
+        }
+
+        colorSelect.addEventListener('change', updateColorPreview);
+
+        updateColorPreview();
+    });
+</script>

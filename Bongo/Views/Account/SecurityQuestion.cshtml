@@ -1,0 +1,39 @@
+﻿@model SecurityQuestionViewModel
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Security Question";
+}
+
+<div class="register-form shadow mt-5">
+    <div class="account-forms position-relative ">
+
+        <div class="mb-3 text-center">
+            <h4 class="fw-bold">Security Question</h4>
+            <p>Please complete the following for in case you need to reset your password</p>
+        </div>
+        <form class="mb-4" asp-action="SecurityQuestion" asp-controller="Account" method="post">
+            <input class="" asp-for="UserName" hidden />
+            <input class="" asp-for="SendingAction" hidden />
+            <div class="mb-3">
+                <label class="form-label" asp-for="SecurityQuestion"></label>
+                <span asp-validation-for="SecurityQuestion" class="text-danger"></span>
+                <select class="form-select" asp-for="SecurityQuestion" required>
+                    <option value="">--- select a question ---</option>
+                    <option>What was your childhood nickname?</option>
+                    <option>What is the name of your favourite cousin?</option>
+                    <option>What high school did you go to?</option>
+                    <option>In which city were you born?</option>
+                </select>
+            </div>
+            <div class="mb-5">
+                <label class="form-label" asp-for="SecurityAnswer"></label>
+                <span asp-validation-for="SecurityAnswer" class="text-danger"></span>
+                <input class="form-control" asp-for="SecurityAnswer" required />
+
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

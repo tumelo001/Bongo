@@ -1,0 +1,77 @@
+﻿@model IFormFile
+
+@{
+    ViewData["Title"] = "Timetable File Upload";
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <form asp-action="TimeTableFileUpload" method="post" enctype="multipart/form-data">
+        <div class="mb-2">
+            <h4 for="file">Upload your UFS Personal Timetable to continue</h4>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <input class="form-control mt-3" type="file" name="file" accept=".pdf" />
+        </div>
+        <div class="mb-5">
+            <input class=" form-check-input" type="checkbox" name="startBlank" value="..."/>
+            <label class="form-check-label"> Continue without uploading (start on your own)</label>
+        </div>
+        <div class="mb-3">
+            <h4>Choose semester</h4>
+            <div class="mt-2">
+                <input class="" type="radio" id="Semester1" name="isFirstSemester" value=true checked />
+                <label class="form-label" for="Semester1">Create for Semester 1</label>
+            </div>
+            <div class="">
+                <input type="radio" id="Semester2" name="isFirstSemester" value=false />
+                <label class="form-label" for="Semester1">Create for Semester 2</label>
+            </div>
+        </div>
+        <a asp-controller="LandingPage" asp-action="Index" asp-fragment="how-it-works-section" class="border-1 text-decoration-none text-dark help-btn" style="vertical-align: middle;">
+            <i class="fa-solid fa-info-circle fa-1x me-1 text-primary"></i><span>Help</span>
+        </a>
+        <div class="d-flex session-prep-buttons">
+            <button class="btn btn-primary mx-3" type="submit" title="Continue"><i class=" fa-solid fa-arrow-right"></i></button>
+        </div>
+        
+    </form>
+
+</div>
+
+
+@if (Context.Request.Cookies["Notified"] == "false")
+{
+    <!-- Modal -->
+    <div class="modal fade " id="noticeModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel">Important Notice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body terms-modal">
+                    <p>
+                        Dear @User.Identity.Name😊,
+                    </p>
+
+                    <p>We would like to express our heartfelt gratitude for choosing Bongo for your needs. We strive to provide the best experience and service to our users.</p>
+
+                    <p>
+                        Currently, we are making some important updates to improve our services. During this period, you may encounter certain features that are temporarily unavailable. We also recommend that you use desktop (laptop) for better exeperience. We sincerely apologize for any inconvenience this may cause.
+                    </p>
+                    <p>
+                        If you encounter any issues or have any questions, please do not hesitate to contact our support team. We are here to assist you and ensure that your experience with Bongo is as seamless as possible.
+                    </p>
+                    <p>Thank you for your understanding and continued support.<br /></p>
+
+                    <p> Best regards,<br />The Bongo Team</p>
+
+                </div>
+                <div class="modal-footer">
+                    <form asp-controller="Home" asp-action="Notice" method="post">
+                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Continue</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,76 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Login";
+}
+
+
+
+<div class="account-forms position-relative shadow mt-5">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show alert-login" role="alert">
+            <i class="fa-solid fa-check"></i>
+            @TempData["Message"]
+        </div>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show alert-login" role="alert">
+            <i class="fa-solid fa-check"></i>
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <div class="mb-3 text-center">
+        <h4 class="fw-bold">Welcome back😊</h4>
+        <p>Please enter your credentials</p>
+    </div>
+    <form class="mb-4" asp-action="Login" asp-controller="Account" method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="mb-4">
+            <label class="form-label" asp-for="Username"></label>
+            <span asp-validation-for="Username" class="text-danger"></span>
+            <input type="text" class="form-control" placeholder="eg. user101" asp-for="Username" />
+        </div>
+        <div class="mb-4">
+            <label class="form-label" for="password_login" asp-for="Password">Password</label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <input type="password" class="form-control" id="password_login" asp-for="Password" />
+
+        </div>
+        <div class="mb-3 d-sm-flex">
+            <div>
+                <input type="checkbox" class="form-check-input" asp-for="RememberMe" />
+                <label class="form-label" asp-for="RememberMe"></label>
+            </div>
+            <div class="ms-sm-5">
+                <a asp-controller="Account" asp-action="Register">
+                    Don't have an account?
+                </a>
+            </div>
+        </div>
+        <div class="mb-4">
+            <a asp-controller="Account" asp-action="ForgotPassword">
+                Forgot password
+            </a>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+    <div class="form-footer-terms my-4 text-center">
+        By signing in, you agree to Bongo's <br />
+        <a class="text-decoration-none text-black fw-bold" data-bs-toggle="modal" data-bs-target="#termsModal">
+            Terms and conditions
+        </a>
+        <a class="text-decoration-none text-black fw-bold" data-bs-toggle="modal" data-bs-target="#privacyModal">
+            | Privacy policy
+        </a>
+    </div>
+    <a class=" text-decoration-none" asp-controller="Account" asp-action="Login"><i class="fa-solid fa-arrow-left fa-xl me-2"></i>Back</a>
+</div>
+
+
+
+@await Html.PartialAsync("_TermsAndPrivacyModal")

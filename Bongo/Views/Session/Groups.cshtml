@@ -1,0 +1,73 @@
+﻿@model GroupsViewModel
+@{
+    ViewData["Title"] = "Choose Groups";
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="mb-3">Manage Groups</h4>
+    @if (Model.GroupedLectures.Count > 0)
+    {
+        <h5 class="mb-4">Please select the class you will attend for each of the following</h5>
+        <div>
+            <input name="GroupedLectures" value="@Model.GroupedLectures" hidden />
+            <form asp-action="Groups" method="post">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                @foreach (Lecture lect in Model.GroupedLectures)
+                {
+                    List<SelectListItem> groupList = new List<SelectListItem>();
+                    Session selected = lect.sessions.FirstOrDefault(s => s.sessionInPDFValue.Contains("selectedGroup"));
+                    string value, displayText;
+                    if (selected != null)
+                    {
+                        value = selected.sessionInPDFValue.Replace("selectedGroup", "").Replace("ignored", "");
+                        displayText = value;
+                        groupList.Add(new SelectListItem { Value = value, Text = displayText, Selected = true });
+                        lect.sessions.Remove(selected);
+                    }
+                    groupList.AddRange((lect.sessions.
+                    Select(s => new SelectListItem
+                    {
+                        Value = s.sessionInPDFValue.Replace("ignored", ""),
+                        Text = s.sessionInPDFValue.Replace("disabled", "").Replace("ignored", ""),
+                        Disabled = Model.CheckDisabled(s.sessionInPDFValue)
+                    })));
+
+
+                    <div class="form-group">
+                        <label class="mb-2 fw-bold">@lect.ModuleCode</label>, <label>@lect.LectureDesc.ToLower()</label>
+                        @Html.DropDownList("Sessions", groupList, new { @class = "form-select mb-2", @required = "required" })
+                        <div class="form-check mb-4 d-flex justify-content-between">
+                            @if (Extensions.HasGroups(lect.sessions))
+                            {
+                                <input class="form-check-input d-inline" type="checkbox" name="SameGroups"
+                                       value="@lect.ModuleCode @lect.LectureDesc" />
+                                <label class="form-check-label d-inline">
+                                    &#160;Select all sessions of the same group
+                                </label>
+                            }
+                            <div class="ms-auto">
+                                <input class="form-check-input d-inline" type="checkbox" name="Ignore"
+                                       value="@(selected != null?selected.sessionInPDFValue.Replace("selectedGroup", "").Replace("ignored", ""):lect.sessions[0].sessionInPDFValue.Replace("ignored", ""))" />
+                                <label class="form-check-label d-inline">
+                                    Ignore
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+                <div class="d-flex session-prep-buttons">
+                    <button class="btn btn-primary" type="submit" title="Continue"><i class=" fa-solid fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
+
+    }
+    else
+    {
+        <h5>You currently do not have Grouped Lectures😊</h5>
+        <div class="d-flex session-prep-buttons">
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-isForFirstSemester="@TempData["isForFirstSemester"]" title="Go back"><i class=" fa-solid fa-arrow-right"></i></a>
+        </div>
+    }
+</div>

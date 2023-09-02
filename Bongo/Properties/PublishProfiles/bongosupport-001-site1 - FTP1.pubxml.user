@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>False|2023-07-25T16:57:51.7624987Z;False|2023-07-25T18:53:38.2279712+02:00;</History>
+    <LastFailureDetails />
+    <_PublishTargetUrl>ftp://win8035.site4now.net:21/bongo</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>07/23/2023 18:31:28</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>07/24/2023 22:54:56</publishTime>
+    </File>
+    <File Include="Aspose.SVG.dll">
+      <publishTime>06/27/2023 10:22:58</publishTime>
+    </File>
+    <File Include="Azure.Core.dll">
+      <publishTime>04/04/2022 23:38:56</publishTime>
+    </File>
+    <File Include="Azure.Identity.dll">
+      <publishTime>04/05/2022 22:26:00</publishTime>
+    </File>
+    <File Include="Bongo.deps.json">
+      <publishTime>07/25/2023 18:48:01</publishTime>
+    </File>
+    <File Include="Bongo.dll">
+      <publishTime>07/25/2023 18:47:41</publishTime>
+    </File>
+    <File Include="Bongo.exe">
+      <publishTime>07/25/2023 18:47:41</publishTime>
+    </File>
+    <File Include="Bongo.pdb">
+      <publishTime>07/25/2023 18:47:41</publishTime>
+    </File>
+    <File Include="Bongo.runtimeconfig.json">
+      <publishTime>07/25/2023 18:47:43</publishTime>
+    </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>12/08/2020 20:05:32</publishTime>
+    </File>
+    <File Include="BouncyCastle.Cryptography.dll">
+      <publishTime>04/21/2023 14:06:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

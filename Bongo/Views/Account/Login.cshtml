@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "_LoginLayout";
+}
+
+<div class="text-center">
+    <h3>Welcome to <span class="welcome-logo">Bongo</span></h3>
+    <h6 class="fw-light mt-0">Login to your bongo account to continue 😎</h6>
+    <div class="mt-5">
+        <a id="openSignInModalButton" asp-controller="Account" asp-action="SignIn" class="btn btn-primary me-3 shadow">
+            Login
+        </a>
+        <a id="openRegisterModalButton" asp-controller="Account" asp-action="Register" class="btn btn-outline-primary shadow">
+            Create account
+        </a>
+    </div>
+</div>

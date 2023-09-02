@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BongoUser>
+@{
+    ViewData["Title"] = "Users List";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show alert-table" role="alert">
+        <i class="fa-solid fa-check"></i>
+        @TempData["Message"]
+    </div>
+}
+
+<p class="mb-3">Total active users: @Model.Count()</p>
+<table class="table table-striped table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <td>UserName</td>
+            <td>UserEmail</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    @if (user.UserName != "Oliver" && user.UserName != "Tumelo")
+                    {
+                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                            <button class="btn btn-danger mx-3" type="submit" title="Delete @(user.UserName)" onclick="return confirm('Are you sure you want to delete @(user.UserName) from users?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model AddSessionViewModel
+
+@{
+    ViewData["Title"] = "Add Session";
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="mb-5">Confirm adding session</h4>
+    <p><strong>@Model.ModuleCode</strong> already has a session for <strong>@Model.SessionType @Model.SessionNumber</strong>, would you like to continue to add this session and select it as the one you will attend</p>
+    <p class="text-danger">Please note that this will remove the existing session from the timetable.</p>
+    <form asp-action="ConfirmGroup" method="post">
+        <input asp-for="ModuleCode" class="form-control d-none" />
+        <input asp-for="SessionType" class="form-select d-none">
+        <input asp-for="SessionNumber" class="form-control d-none"/>
+        <input asp-for="Venue" class="form-control d-none" />
+        <input asp-for="Day" class="form-control d-none" />
+        <input asp-for="startTime" class="form-control d-none"/>
+        <input asp-for="endTime" class="form-control d-none"/>
+        <div class="d-flex session-prep-buttons">
+            <button class="btn btn-primary" type="submit" title="Add Session">Yes, continue</button>
+            <a class="btn btn-outline-primary mx-3" asp-action="AddSession" asp-route-day="@Model.Day"
+               asp-route-time="@Model.startTime" asp-route-moduleCode="@Model.ModuleCode" asp-route-Venue="@Model.Venue" title="Go back">
+               No, go back
+           </a>
+        </div>
+    </form>
+</div>
+

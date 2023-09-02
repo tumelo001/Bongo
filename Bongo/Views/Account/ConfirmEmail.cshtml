@@ -1,0 +1,35 @@
+﻿@model ConfirmEmail 
+
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Verify Email";
+}
+
+<div class="account-forms position-relative shadow mt-5">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show alert-login" role="alert">
+            <i class="fa-solid fa-check"></i>
+            @TempData["Message"]
+        </div>
+    }
+    <div class="mb-3 text-center ">
+        <h4 class="fw-bold">Verify your email</h4>
+    </div>
+    <form class="mb-4" asp-action="ConfirmEmail" asp-controller="Account" method="post">
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Token" />
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Verify</button>
+        </div>
+    </form>
+    <div class="form-footer-terms my-4 text-center">
+        By signing in, you agree to Bongo's <br />
+        <a class="text-decoration-none text-black fw-bold" data-bs-toggle="modal" data-bs-target="#termsModal">
+            Terms and conditions
+        </a>
+        <a class="text-decoration-none text-black fw-bold" data-bs-toggle="modal" data-bs-target="#privacyModal">
+            | Privacy policy
+        </a>
+    </div>
+</div>

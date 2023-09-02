@@ -1,0 +1,84 @@
+﻿@{
+    string semester = ViewBag.isForFirstSemester ? "1" : "2";
+    string isHidden = Context.Request.Cookies["isVenueHidden"];
+    string timeSingle = Context.Request.Cookies["isTimeSingle"];
+}
+
+<div class="d-flex mb-3 justify-content-between bg-light toolbar-nav">
+    <ul class="nav toolbar">
+        <li class="nav-item">
+            <form asp-controller="Home" asp-action="UpdateCookie"
+                  asp-route-key="isVenueHidden" asp-route-value="@(isHidden == "false" ? "true" : "false")" method="post">
+                <button class="border-0 text-dark nav-link toogle-btn" title="Show Venues" type="submit" style="">
+                    <i class="fa-solid @(isHidden == "true" ? "fa-toggle-off" : "fa-toggle-on")"></i> Venue
+                </button>
+            </form>
+        </li>
+        <li class="nav-item">
+            <form asp-controller="Home" asp-action="UpdateCookie"
+                  asp-route-key="isTimeSingle" asp-route-value="@(timeSingle == "false" ? "true" : "false")" method="post">
+                <button class="border-0 text-dark nav-link toogle-btn" title="Show interval times" type="submit" style="">
+                    <i class="fa-solid @(timeSingle == "true" ? "fa-toggle-off" : "fa-toggle-on")"></i> Timeview
+                </button>
+            </form>
+        </li>
+        <li class="nav-item">
+            <a class=" text-dark nav-link" title="Edit Colors"
+               asp-controller="Session" asp-action="EditColors" asp-route-firstSemester="@TempData["isForFirstSemester"]">
+                <i class="fa-solid fa-edit"></i> Colors
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class=" text-dark nav-link" title="Edit Groups"
+               asp-controller="Session" asp-action="EditGroups" asp-route-firstSemester="@TempData["isForFirstSemester"]">
+                <i class="fa-solid fa-edit"></i> Groups
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class=" text-dark nav-link" title="Edit Clashes"
+               asp-controller="Session" asp-action="EditClashes" asp-route-firstSemester="@TempData["isForFirstSemester"]">
+                <i class="fa-solid fa-edit"></i> Clashes
+            </a>
+        </li>
+    </ul>
+    <ul class="nav toolbar">
+        <li class="nav-item dropdown">
+            <a class="nav-link text-dark dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-arrows-rotate me-1"></i>Semester @semester
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small shadow position-absolute" aria-labelledby="dropdownUser2">
+                <li>
+                    <form asp-controller="Home" asp-action="UpdateCookie"
+                          asp-route-key="isForFirstSemester" asp-route-value="@((!ViewBag.isForFirstSemester).ToString().ToLower())" method="post">
+                        <button class="text-dark nav-link border-0 toogle-btn" title="Switch between Semester 1 and 2">
+                            Semester @(semester == "1" ? "2" : "1")
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var hideElements = document.querySelectorAll('.hide-venue');
+        var moduleCode = document.querySelectorAll('.period-button');
+        var isHidden = @Html.Raw(Json.Serialize(isHidden));
+
+        if (isHidden === 'true') {
+            hideElements.forEach(function (element) {
+                element.style.display = 'none';
+            });
+            moduleCode.forEach(function (x) {
+                x.style.verticalAlign = 'middle';
+            });
+        } else {
+            hideElements.forEach(function (element) {
+                element.style.display = 'block';
+            });
+        }
+    });
+</script>
+

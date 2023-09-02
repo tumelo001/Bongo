@@ -1,0 +1,50 @@
+﻿@model AddSessionViewModel
+
+@{
+    ViewData["Title"] = "Add Session";
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="mb-5">Add Session</h4>
+    <form asp-action="AddSession" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <h5 class="">Module Code</h5>
+            <input asp-for="ModuleCode" class="form-control w-50 add-module-code" />
+        </div>
+        <div class="mb-3">
+            <h5  class="">Session type and number</h5>
+            <select asp-for="SessionType" class="form-select mb-2 d-inline add-session-type" style="width:35%; margin-right:4%">
+                <option>Lecture</option>
+                <option>Practical</option>
+                <option>Tutorial</option>
+            </select>
+            <input asp-for="SessionNumber" class="form-control d-inline add-session-number" style="width:10%;"  min="0" max="10"/>
+        </div>
+        <div class="mb-3">
+            <h5 class="form-label">Venue</h5>
+            <input asp-for="Venue" class="form-control w-50 add-venue" />
+        </div>
+        <div class="mb-3">
+            <h5 class="">Day</h5>
+            <input asp-for="Day" class="form-control w-50 mb-3 add-day" readonly />
+            <h5 class=" ">Start time</h5>
+            <input asp-for="startTime" class="form-control w-50 mb-3 add-time" readonly />
+            <h5  class="form-label">End time</h5>
+            @if (ViewBag.endTimes.Count == 1)
+            {
+                <input asp-for="endTime" class="form-control w-50 mb-3 add-time" value="@ViewBag.endTimes[0].Value" readonly />
+            }
+            else
+            {
+                <select asp-for="endTime" class="form-select w-50 add-time" asp-items="@ViewBag.endTimes">
+                </select>
+            }
+        </div>
+        <div class="d-flex session-prep-buttons">
+            <a class="btn btn-outline-primary mx-3" asp-action="Index" asp-controller="Home" title="Go back"><i class=" fa-solid fa-arrow-left"></i></a>
+            <button class="btn btn-primary" type="submit" title="Add Session"><i class=" fa-solid fa-plus"></i></button>
+        </div>
+    </form>
+</div>

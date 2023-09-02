@@ -1,0 +1,74 @@
+﻿@model UserReview
+
+@{
+    ViewData["Title"] = "Rate us";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show alert-table" role="alert">
+        <i class="fa-solid fa-check"></i>
+        @TempData["Message"]
+    </div>
+}
+
+<div class="session-prep bg-light shadow w-sm-50">
+    <h4 class="mb-3 ">Review us</h4>
+    <p>How was your experience using our application? <br />Your review matters!😎</p>
+    <form asp-controller="UserReview" asp-action="AddReview" method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="ReviewId" />
+        <input type="hidden" asp-for="Username" />
+        <label class="form-label d-block" asp-for="Rating">Rate us out of 5</label>
+        <div class="mb-3 d-flex">
+            <input class="d-none" asp-for="Rating" id="rating" />
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Review"></label>
+            <textarea class="form-control" cols="60" rows="5" maxlength="500" placeholder="Type here...." asp-for="Review"></textarea>
+        </div>
+        <div class="d-flex session-prep-buttons">
+            <button class="btn btn-primary me-3" type="submit" title="Submit review"><i class="fa-solid fa-floppy-disk"></i></button>
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-isForFirstSemester="@TempData["isForFirstSemester"]" title="Go back"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+    </form>
+</div>
+
+<script>
+    const stars = document.querySelectorAll('.fa-star');
+    const rating = document.querySelector('#rating');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        stars.forEach((s, i) => {
+            if (i < parseInt(rating.value)) {
+                s.classList.remove('fa-regular');
+                s.classList.add('fa-solid');
+            } else {
+                s.classList.remove('fa-solid');
+                s.classList.add('fa-regular');
+            }
+        });
+    });
+
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            stars.forEach((s, i) => {
+                if (i <= index) {
+                    s.classList.remove('fa-regular');
+                    s.classList.add('fa-solid');
+                } else {
+                    s.classList.remove('fa-solid');
+                    s.classList.add('fa-regular');
+                }
+
+            });
+            rating.setAttribute("value", (index + 1).toString());
+            console.log('hi2');
+        });
+    });
+</script>

@@ -1,0 +1,218 @@
+﻿* {
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+body {
+    position: relative;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    background: rgb(0,14,255);
+    background: linear-gradient(45deg, rgba(0,14,255,0.5158438375350141) 0%, rgba(201,201,201,0.742734593837535) 50%, rgba(255,255,255,0.927608543417367) 100%);
+}
+
+.break-section {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    color: white;
+    top: -25px;
+    right: 15%;
+    width: 200px;
+    height: 50px;
+    background-color: blue;
+}
+#testimonial .break-section {
+    top: -85px;
+}
+
+.btn-primary {
+    border: none !important;
+    box-shadow: 0 -2px 5px -2px #333;
+    background: rgb(0,14,255) !important;
+    background: linear-gradient(45deg, rgba(0,4,255,0.5158438375350141) 0%, rgba(201,201,201,0.742734593837535) 80%, rgba(255,255,255,0.927608543417367) 100%) !important;
+}
+
+    .btn-primary:hover {
+        opacity: 0.6;
+    }
+
+.btn-outline-primary:hover {
+    box-shadow: 0 -2px 5px -2px #333;
+    background: rgb(0,14,255) !important;
+    background: linear-gradient(45deg, rgba(0,4,255,0.5158438375350141) 0%, rgba(201,201,201,0.742734593837535) 80%, rgba(255,255,255,0.927608543417367) 100%) !important;
+}
+
+
+.logo {
+    font-family: 'Arial Rounded MT', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 38px !important;
+    color: blue !important;
+    letter-spacing: 4px !important;
+}
+
+.nav-link {
+    color: black !important;
+    transition: 0.15s;
+}
+
+    .nav-link:hover {
+        color: blue;
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+.main-section {
+    line-height: 1.5;
+    margin: 180px auto;
+    width: 750px;
+}
+
+    .main-section a {
+        padding: 8px 16px;
+    }
+
+    .main-section h1 {
+        color: blue;
+    }
+
+    .main-section img {
+    }
+
+.header-text {
+    font-size: 26px;
+    font-family: helvetica;
+    margin: 40px 0;
+}
+
+.main-section img {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 350px;
+    height: 350px;
+    margin-left: 80px;
+}
+
+.top-image {
+}
+
+.get-started-btn {
+    background-color: rgb(255,255,255, 0.5);
+    color: black;
+    border: 1px solid blue;
+    border-radius: 8px;
+    transition: 0.15s;
+}
+
+    .get-started-btn:hover {
+        color: white !important;
+        cursor: pointer;
+        background-color: blue;
+        opacity: 0.6;
+    }
+
+section {
+    margin-bottom: 60px;
+}
+
+.section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.how-it-works-section {
+    background-color: white;
+    width: 100%;
+}
+
+.carousel-caption {
+    background-color: rgba(15, 15, 15, 0.2);
+    color: blue !important;
+}
+
+.carousel-item img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+
+.carousel-item {
+    color: black !important;
+}
+
+
+.testimonial-section {
+    min-height: 600px;
+}
+
+.testimonial {
+    width: 400px;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: rgb(255,255,255, 0.4);
+    padding: 15px;
+}
+
+.testimonial-profile img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.testimonial-content{
+    margin-left: 77px;
+    word-wrap: break-word;
+}
+
+.about-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.about-section {
+    background-color: white;
+    height: 300px;
+    margin-bottom: 0;
+}
+
+.about {
+    width: 500px;
+}
+
+footer {
+    margin-top: 60px;
+}
+
+.footer-contact {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+    .footer-contact a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+
+@media only screen and (max-width: 650px) {
+    .main-section img {
+        width: 200px !important;
+        height: 200px !important;
+        margin-left: 50px;
+    }
+    .main-section{
+        margin-top: 80px !important;
+    }
+    .testimonial {
+        width: 250px;
+    }
+
+    .about {
+        width: 200px;
+    }
+}

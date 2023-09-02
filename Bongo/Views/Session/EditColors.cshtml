@@ -1,0 +1,84 @@
+﻿@model ModulesColorsViewModel
+
+@{
+    string activeAction = ViewContext.RouteData.Values["action"].ToString();
+    ViewData["Title"] = activeAction == "EditColors" ? "Edit Colors" : "Modules";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show alert-table" role="alert">
+        <i class="fa-solid fa-check"></i>
+        @TempData["Message"]
+    </div>
+}
+<div class="session-prep bg-light shadow w-sm-50">
+    @{
+        string header = activeAction == "EditColors" ? "Edit Module Colors" : "Manage Modules";
+    }
+    <h4 class="mb-5">@header</h4>
+    <form asp-controller="Session" asp-action="UpdateModuleColor" method="post">
+        @foreach (var moduleColor in Model.ModuleColors)
+        {
+            if (!moduleColor.ModuleCode.Contains("CCCC"))
+            {
+                <div class="mb-4">
+                    <input type="hidden" asp-for="@moduleColor.Username" />
+                    <input type="hidden" asp-for="@moduleColor.ModuleCode" />
+                    <input type="hidden" asp-for="@moduleColor.ModuleColorId" name="ModuleColorId" />
+                    <input type="hidden" asp-for="@moduleColor.Color" />
+                    <h5>@moduleColor.ModuleCode</h5>
+                    <div class="d-flex align-items-center">
+                        <select id="@moduleColor.ModuleCode-select colorSelect" asp-for="@moduleColor.ColorId" name="ColorId" class="form-select w-25  colorSelect" asp-items="@ViewBag.Colors">
+                        </select>
+                        <div class="ms-2 colorPreview" style="width:38px;height:38px;border-radius:4px;"></div>
+                        @if (activeAction != "EditColors")
+                        {
+                            <button class="btn btn-outline-primary mx-3" title="Delete Module"
+                        asp-controller="Session" asp-action="DeleteModule" asp-route-ModuleCode="@moduleColor.ModuleCode"
+                                    type="submit" formmethod="post" onclick="return confirm('Are you sure you want to delete @(moduleColor.ModuleCode) from your modules?')">
+                                Delete
+                            </button>
+                        }
+                    </div>
+                </div>
+            }
+
+
+        }
+        @if (Model.ModuleColors.Count() == 0)
+        {
+            <h5>You currently do not have any Modules😊</h5>
+        }
+        <div class="d-flex session-prep-buttons">
+            <a asp-controller="Session" asp-action="Index" class="btn btn-primary " title="Go back"><i class=" fa-solid fa-arrow-left"></i></a>
+            @if (Model.ModuleColors.Count() != 0)
+            {
+                <a asp-controller="Session" asp-action="RandomColorEdit" asp-route-activeAction="@activeAction" class="btn btn-outline-primary ms-3" title="Randomly select color"><i class="fa-solid fa-bolt-lightning fa-beat-fade"></i></a>
+                <button class="btn btn-outline-primary mx-3" type="submit" title="Save changes"><i class=" fa-solid fa-floppy-disk"></i></button>
+            }
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const colorSelect = document.querySelectorAll('.colorSelect');
+        const colorPreview = document.querySelectorAll('.colorPreview');
+        const color = @Html.Raw(Json.Serialize(Model.Colors.ToArray().OrderBy(m => m.ColorId)));
+
+        function updateColorPreview() {
+            colorSelect.forEach(function (select, index) {
+                const i = parseInt(select.value) - 1;
+                const selectedColor = color[i].colorValue;
+                colorPreview[index].style.backgroundColor = selectedColor;
+            });
+        }
+
+        colorSelect.forEach(function (select) {
+            select.addEventListener('change', updateColorPreview);
+        });
+
+        updateColorPreview();
+    });
+</script>
